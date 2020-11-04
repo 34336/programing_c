@@ -12,7 +12,7 @@ int main(){
 		silnia=silnia*i	;
 	}
 	//	i = i*++i;
-	printf("%d" , silnia);
+	printf("%d\n" , silnia);
 
 	return 0;
 }
