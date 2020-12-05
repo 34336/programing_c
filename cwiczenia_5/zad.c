@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-
+// This code is undone yet and propably newr will
 int main(){
 
 	srand( time( 0 ) );
