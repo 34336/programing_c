@@ -1,5 +1,5 @@
 #include <stdio.h>
-float substract(){
+float sutract(){
 	float a ,b ,wynik;
 	float *w1 = &a;
 	float *w2 = &b;

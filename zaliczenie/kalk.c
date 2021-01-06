@@ -6,10 +6,40 @@ float wynik ;
 float *w1 = &a;
 float *w2 = &b;
 float *result = &wynik;
+//
+//dodawanie
+float sum(){
+	printf("Podaj pierwsza liczbe:\n");
+	scanf("%f" , w1);
+	printf("Podaj druga liczbe:\n");
+	scanf("%f" , w2);
+	*result = (*w1) - (*w2);
+	printf( "wynik dodawania liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
+	printf( "\n" );
 
+	return *result;
+}
+//dodawanie-koniec
+
+
+//odejmowanie
+float subtract(){
+	printf("Podaj pierwsza liczbe:\n");
+	scanf("%f" , w1);
+	printf("Podaj druga liczbe:\n");
+	scanf("%f" , w2);
+	*result = (*w1) - (*w2);
+	printf( "wynik odejmowania liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
+	printf( "\n" );
+
+	return *result;
+}
+//odejmowanie-koniec
+
+//potegowanie-poczatek
 float power(){
 
-	float tmp = 1;
+	float tmp = *w1;
 
 	printf("podaj liczbe ktora chcesz podniesc do potegi:\n");
 	scanf( "%f" , &a );
@@ -25,13 +55,13 @@ float power(){
 	printf( "liczba %.2f podniesiona do potegi %.2f to: %.2f\n" , *w1 , *w2 , *result );
 	return *result;
 }
+//potegowanie-koniec
 
 //menu-more-begin
 int calc_more(){
 //	for(;;){
 	while(true){
 		printf("p) Potegowanie\n");
-		printf("e) Pierwiastkowanie\n");
 		printf("q) Wstecz\n");
 		fflush( stdin );
 		scanf("%c" , &choice);
@@ -40,8 +70,6 @@ int calc_more(){
 		switch( choice ){
 			case 'p':
 				power();
-				break;
-			case 'e':
 				break;
 			case 'q':
 				return 1;
@@ -70,13 +98,14 @@ int calc_menu(){
 		fflush( stdin );
 
 		switch( choice ){
-			case 1:
+			case '1':
 				break;
-			case 2:
+			case '2':
+				subtract();
 				break;
-			case 3:
+			case '3':
 				break;
-			case 4:
+			case '4':
 				break;
 			case 'm':
 				calc_more();
