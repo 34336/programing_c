@@ -6,7 +6,35 @@ float wynik ;
 float *w1 = &a;
 float *w2 = &b;
 float *result = &wynik;
-//
+
+//dzielenie
+float divide(){
+	printf("Podaj pierwsza liczbe:\n");
+	scanf("%f" , w1);
+	printf("Podaj druga liczbe:\n");
+	scanf("%f" , w2);
+	*result = (*w1) * (*w2);
+	printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
+	printf( "\n" );
+
+	return *result;
+}
+//dzielenie-koniec
+
+//mnozenie
+float multiplication(){
+	printf("Podaj pierwsza liczbe:\n");
+	scanf("%f" , w1);
+	printf("Podaj druga liczbe:\n");
+	scanf("%f" , w2);
+	*result = (*w1) * (*w2);
+	printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
+	printf( "\n" );
+
+	return *result;
+}
+//mnezenie-koniec
+
 //dodawanie
 float sum(){
 	printf("Podaj pierwsza liczbe:\n");
@@ -99,13 +127,16 @@ int calc_menu(){
 
 		switch( choice ){
 			case '1':
+				sum();
 				break;
 			case '2':
 				subtract();
 				break;
 			case '3':
+				multiplication();
 				break;
 			case '4':
+				divide();
 				break;
 			case 'm':
 				calc_more();
