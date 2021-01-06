@@ -1,20 +1,61 @@
 #include <stdio.h>
+char choice;
+float a ;
+float b ;
+float wynik ;
+float *w1 = &a;
+float *w2 = &b;
+float *result = &wynik;
 
+float power(){
+
+	float tmp = 1;
+
+	printf("podaj liczbe ktora chcesz podniesc do potegi:\n");
+	scanf( "%f" , &a );
+	printf("podaj stopien  potegi:\n");
+	scanf( "%f" , &b );
+
+	
+	for ( int i = 0 ; i < *w2 ; i++ ){
+
+		tmp = tmp * (*w1);
+	}
+	*result = tmp;
+	printf( "liczba %.2f podniesiona do potegi %.2f to: %.2f\n" , *w1 , *w2 , *result );
+	return *result;
+}
+
+//menu-more-begin
 int calc_more(){
-	char choice;
-//	for(;;)	
+//	for(;;){
 	while(true){
 		printf("p) Potegowanie\n");
 		printf("e) Pierwiastkowanie\n");
+		printf("q) Wstecz\n");
 		fflush( stdin );
 		scanf("%c" , &choice);
 		fflush( stdin );
+
+		switch( choice ){
+			case 'p':
+				power();
+				break;
+			case 'e':
+				break;
+			case 'q':
+				return 1;
+			default:
+				printf("Wybrano niepoprawna akcje\n");
+				break;
+		}
 	}
 	return 1;
 }
+//menu-more-end
 	
+//menu-begin
 int calc_menu(){
-	char choice;
 		for(;;){
 
 		printf("Wybierz działanie do wykonania:\n");
@@ -50,6 +91,7 @@ int calc_menu(){
 	}
 	return 1;
 }
+//menu-end
 
 int main(){
 	
