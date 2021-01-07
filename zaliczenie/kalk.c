@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "sum.h"
 char choice;
 float a ;
 float b ;
@@ -36,18 +37,7 @@ float multiplication(){
 //mnezenie-koniec
 
 //dodawanie
-float sum(){
-	printf("Podaj pierwsza liczbe:\n");
-	scanf("%f" , w1);
-	printf("Podaj druga liczbe:\n");
-	scanf("%f" , w2);
-	*result = (*w1) - (*w2);
-	printf( "wynik dodawania liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
-	printf( "\n" );
 
-	return *result;
-}
-//dodawanie-koniec
 
 
 //odejmowanie
@@ -74,7 +64,7 @@ float power(){
 	printf("podaj stopien  potegi:\n");
 	scanf( "%f" , &b );
 
-	
+
 	for ( int i = 0 ; i < *w2 ; i++ ){
 
 		tmp = tmp * (*w1);
@@ -109,7 +99,7 @@ int calc_more(){
 	return 1;
 }
 //menu-more-end
-	
+
 //menu-begin
 int calc_menu(){
 		for(;;){
@@ -154,7 +144,7 @@ int calc_menu(){
 //menu-end
 
 int main(){
-	
+
 
 	calc_menu();
 
