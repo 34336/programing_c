@@ -7,37 +7,34 @@ float *w1 = &a;
 float *w2 = &b;
 float *result = &wynik;
 
+int sum(){
+	printf("podaj pierwszą liczbe:\n");
+	scanf( "%f" , &a );
+	printf("podaj druga liczbe:\n");
+	scanf( "%f" , &b );
+
+	*result = ( *w1 ) + ( *w2 );
+
+	printf( "wynik sumy %2.f oraz %2.f to: %2.f\n " , *w1 , *w2 , *result );
+
+	printf("\n");
+
+	return 0;
+}
+
 //dzielenie
 float divide(){
 	printf("Podaj pierwsza liczbe:\n");
 	scanf("%f" , w1);
 	printf("Podaj druga liczbe:\n");
 	scanf("%f" , w2);
-	*result = (*w1) * (*w2);
+	*result = (*w1) / (*w2);
 	printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
 	printf( "\n" );
 
 	return *result;
 }
 //dzielenie-koniec
-
-//mnozenie
-float multiplication(){
-	printf("Podaj pierwsza liczbe:\n");
-	scanf("%f" , w1);
-	printf("Podaj druga liczbe:\n");
-	scanf("%f" , w2);
-	*result = (*w1) * (*w2);
-	printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
-	printf( "\n" );
-
-	return *result;
-}
-//mnezenie-koniec
-
-//dodawanie
-
-
 
 //odejmowanie
 float subtract(){
@@ -53,10 +50,23 @@ float subtract(){
 }
 //odejmowanie-koniec
 
-//potegowanie-poczatek
+//mnozenie
+float multiplication(){
+	printf("Podaj pierwsza liczbe:\n");
+	scanf("%f" , w1);
+	printf("Podaj druga liczbe:\n");
+	scanf("%f" , w2);
+	*result = (*w1) * (*w2);
+	printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
+	printf( "\n" );
+
+	return *result;
+}
+//mnezenie-koniec
+
 float power(){
 
-	float tmp = *w1;
+	float tmp = 1;
 
 	printf("podaj liczbe ktora chcesz podniesc do potegi:\n");
 	scanf( "%f" , &a );
@@ -72,12 +82,12 @@ float power(){
 	printf( "liczba %.2f podniesiona do potegi %.2f to: %.2f\n" , *w1 , *w2 , *result );
 	return *result;
 }
-//potegowanie-koniec
+
 
 //menu-more-begin
 int calc_more(){
 //	for(;;){
-	while(true){
+	while(1){
 		printf("p) Potegowanie\n");
 		printf("q) Wstecz\n");
 		fflush( stdin );
@@ -97,7 +107,6 @@ int calc_more(){
 	}
 	return 1;
 }
-//menu-more-end
 
 //menu-begin
 int calc_menu(){
@@ -139,14 +148,4 @@ int calc_menu(){
 
 	}
 	return 1;
-}
-//menu-end
-
-int main(){
-
-
-	calc_menu();
-
-
-	return 0;
 }
