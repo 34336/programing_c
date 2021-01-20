@@ -8,3 +8,14 @@
 
 1610194881 /home/marcin/Desktop/projekt/kalkulator/func.h
 
+1611149622 source:/home/marcin/Desktop/git/programing_c/zaliczenie/kalkulator/func.c
+	<stdio.h>
+	<math.h>
+
+1610835903 source:/home/marcin/Desktop/git/programing_c/zaliczenie/kalkulator/main.c
+	<stdio.h>
+	<math.h>
+	"func.h"
+
+1610835902 /home/marcin/Desktop/git/programing_c/zaliczenie/kalkulator/func.h
+
