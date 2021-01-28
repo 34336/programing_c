@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #define N 10
 int i = 0;
 
@@ -72,47 +71,53 @@ void mem_update(){
 
 void mem_print(){
     char test;
-    printf("Historia wykonywanych obliczen:\n");
-    printf( "\n");
-    for( i = 0 ; i < N ; i++){
-        if( mem[i].indicator == 1 ){
-            printf( "Rodzaj operacji: " );
-            switch ( mem[i].dzialanie ){
-                case '1':
-                    printf("Dodawanie\n");
-                    break;
-                case '2':
-                    printf("Odejmowanie\n");
-                    break;
-                case '3':
-                    printf("Mnozenie\n");
-                    break;
-                case '4':
-                    printf("Dzielenie\n");
-                    break;
+    if( mem[0].indicator == 0 ){
+        printf( "Brak zapamietanych dzialan do wyswietlenia...\n" );
+        printf( "\n" );
+    }
+    else{
+        printf("Historia wykonywanych obliczen:\n");
+        printf( "\n");
+        for( i = 0 ; i < N ; i++){
+            if( mem[i].indicator == 1 ){
+                printf( "Rodzaj operacji: " );
+                switch ( mem[i].dzialanie ){
+                    case '1':
+                        printf("Dodawanie\n");
+                        break;
+                    case '2':
+                        printf("Odejmowanie\n");
+                        break;
+                    case '3':
+                        printf("Mnozenie\n");
+                        break;
+                    case '4':
+                        printf("Dzielenie\n");
+                        break;
+                    case 'b':
+                        printf("BMI\n");
+                        break;
+                }
+                printf( "Pierwsza liczba: %2.f\n" , mem[i].a );
+                printf( "Druga liczba: %2.f\n" , mem[i].b );
+                printf( "Wynik: %2.f\n" ,mem[i].wynik );
+                switch ( mem[i].dzialanie ){
                 case 'b':
-                    printf("BMI\n");
+                    printf( "Kategoria: " );
+                    if( mem[i].wynik < 18.5){
+                        printf( "Niedowaga\n" );
+                    }
+                    else if( mem[i].wynik > 25){
+                        printf( "Nadwaga\n" );
+                    }
+                    else{
+                        printf( "Norma\n" );
+                    }
                     break;
+                }
+                printf( "\n");
+                printf( "\n");
             }
-            printf( "Pierwsza liczba: %2.f\n" , mem[i].a );
-            printf( "Druga liczba: %2.f\n" , mem[i].b );
-            printf( "Wynik: %2.f\n" ,mem[i].wynik );
-            switch ( mem[i].dzialanie ){
-            case 'b':
-                printf( "Kategoria: " );
-                if( mem[i].wynik < 18.5){
-                    printf( "Niedowaga\n" );
-                }
-                else if( mem[i].wynik > 25){
-                    printf( "Nadwaga\n" );
-                }
-                else{
-                    printf( "Norma\n" );
-                }
-                break;
-            }
-            printf( "\n");
-            printf( "\n");
         }
     }
 }
@@ -172,6 +177,7 @@ int calc_more(){
 	while(1){
 		printf("p) Potegowanie\n");
 		printf("b) BMI\n");
+		printf("w) Pokaz hiistorie dzialan\n");
 		printf("q) Wstecz\n");
 		fflush( stdin );
 		scanf("%c" , operation);
@@ -189,6 +195,9 @@ int calc_more(){
                 some.wynik = bmi();
                 printf( "Twoje bmi wynosi %3.f\n" , *result );
                 mem_update();
+                break;
+            case 'w':
+                mem_print();
                 break;
 			case 'q':
 				return 1;
