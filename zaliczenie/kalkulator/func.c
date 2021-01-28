@@ -132,6 +132,7 @@ float power(){
     else if( *w1 == 0 ) {
         return -1;
     }
+    return 0;
 }
 //potegowanie-koniec
 
@@ -144,10 +145,10 @@ float bmi(){
 
 //menu-more-begin
 int calc_more(){
-    memo();
 //	for(;;){
 	while(1){
 		printf("p) Potegowanie\n");
+		printf("b) BMI\n");
 		printf("q) Wstecz\n");
 		fflush( stdin );
 		scanf("%c" , operation);
@@ -163,6 +164,15 @@ int calc_more(){
 				printf( "liczba %.2f podniesiona do potegi %.2f to: %.2f\n" , *w1 , *w2 , *result );
 				mem_update();
 				break;
+            case 'b':
+                printf("Podaj wzrost[cm]\n");
+                scanf("%f" , w1);
+                printf("Podaj wagę[kg]\n");
+                scanf("%f" , w2);
+                some.wynik = bmi();
+                printf( "Twoje bmi wynosi %3.f\n" , *result );
+                mem_update();
+                break;
 			case 'q':
 				return 1;
 			default:
@@ -175,14 +185,14 @@ int calc_more(){
 
 //menu-begin
 int calc_menu(){
-		for(;;){
+        memo();
 
+		for(;;){
 		printf("Wybierz działanie do wykonania:\n");
 		printf("1) Dodawanie\n");
 		printf("2) Odejmowanie\n");
 		printf("3) Mnożenie\n");
 		printf("4) Dzielenie\n");
-		printf("b) BMI\n");
 		printf("w) pokaż hiistorie dzialan\n");
 		printf("m) Wiecej\n");
 		printf("q) Wyjscie\n");
@@ -228,15 +238,6 @@ int calc_menu(){
 				printf( "wynik dzielenia liczby %2.f od liczby %2.f to: %2.f \n \n" , *w2 , *w1 , *result );
 				mem_update();
 				break;
-			case 'b':
-                printf("Podaj wzrost[cm]\n");
-                scanf("%f" , w1);
-                printf("Podaj wagę[kg]\n");
-                scanf("%f" , w2);
-                some.wynik = bmi();
-                printf( "Twoje bmi wynosi %3.f\n" , *result );
-                mem_update();
-                break;
 			case 'm':
 			    *operation = '0';
 				calc_more();
