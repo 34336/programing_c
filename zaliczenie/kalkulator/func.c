@@ -19,6 +19,26 @@ float *w2 = &some.b;
 float *result = &some.wynik;
 char *operation = &some.dzialanie;
 
+void get_num(){
+
+    switch( *operation ){
+    case 'b':
+        printf("podaj Wzrost[cm]:\n");
+        scanf( "%f" , w1 );
+        printf("podaj wage[kg]:\n");
+        scanf( "%f" , w2 );
+        break;
+    default:
+        printf("podaj pierwszą liczbe:\n");
+        scanf( "%f" , w1 );
+        printf("podaj druga liczbe:\n");
+        scanf( "%f" , w2 );
+        break;
+    }
+
+
+}
+
 void memo(){
     for( i = 0 ; i < N-1 ; i++ ){
         mem[i].indicator = 0;
@@ -51,6 +71,7 @@ void mem_update(){
 }
 
 void mem_print(){
+    char test;
     printf("historia wykonywanych obliczen:\n");
     printf( "\n");
     for( i = 0 ; i < N ; i++){
@@ -89,7 +110,7 @@ void mem_print(){
                 break;
             }
             printf( "\n");
-
+            printf( "\n");
         }
     }
 }
@@ -156,19 +177,13 @@ int calc_more(){
 
 		switch( *operation ){
 			case 'p':
-			    printf("podaj liczbe ktora chcesz podniesc do potegi:\n");
-                scanf( "%f" , w1 );
-                printf("podaj stopien  potegi:\n");
-                scanf( "%f" , w2 );
+                get_num();
 				*result = power();
 				printf( "liczba %.2f podniesiona do potegi %.2f to: %.2f\n" , *w1 , *w2 , *result );
 				mem_update();
 				break;
             case 'b':
-                printf("Podaj wzrost[cm]\n");
-                scanf("%f" , w1);
-                printf("Podaj wagę[kg]\n");
-                scanf("%f" , w2);
+                get_num();
                 some.wynik = bmi();
                 printf( "Twoje bmi wynosi %3.f\n" , *result );
                 mem_update();
@@ -191,9 +206,9 @@ int calc_menu(){
 		printf("Wybierz działanie do wykonania:\n");
 		printf("1) Dodawanie\n");
 		printf("2) Odejmowanie\n");
-		printf("3) Mnożenie\n");
+		printf("3) Mnozenie\n");
 		printf("4) Dzielenie\n");
-		printf("w) pokaż hiistorie dzialan\n");
+		printf("w) Pokaz hiistorie dzialan\n");
 		printf("m) Wiecej\n");
 		printf("q) Wyjscie\n");
 		fflush( stdin );
@@ -202,44 +217,31 @@ int calc_menu(){
 
 		switch( *operation ){
 			case '1':
-			    printf("podaj pierwszą liczbe:\n");
-                scanf( "%f" , w1 );
-                printf("podaj druga liczbe:\n");
-                scanf( "%f" , w2 );
+                get_num();
 				*result = sum( *w1 , *w2 );
 				printf( "wynik dodawania liczby %2.f oraz %2.f to: %2.f\n" , *w1 , *w2 , *result);
 				mem_update();
 				break;
 			case '2':
-			    printf("Podaj pierwsza liczbe:\n");
-                scanf("%f" , w1);
-                printf("Podaj druga liczbe:\n");
-                scanf("%f" , w2);
+                get_num();
                 some.wynik = subtract( *w1 , *w2 );
                 printf( "wynik odejmowania liczby %2.f od liczby %2.f to: %2.f \n" , *w2 , *w1 , *result );
                 printf( "\n" );
                 mem_update();
 				break;
 			case '3':
-			    printf("Podaj pierwsza liczbe:\n");
-                scanf("%f" , w1);
-                printf("Podaj druga liczbe:\n");
-                scanf("%f" , w2);
+			    get_num();
 				*result = multiplication( w1 , w2 );
-                printf( "wynik mnożenia liczby %2.f od liczby %2.f to: %2.f \n \n" , *w2 , *w1 , *result );
+                printf( "wynik mnozenia liczby %2.f od liczby %2.f to: %2.f \n \n" , *w2 , *w1 , *result );
                 mem_update();
 				break;
 			case '4':
-			    printf("Podaj pierwsza liczbe:\n");
-                scanf("%f" , w1);
-                printf("Podaj druga liczbe:\n");
-                scanf("%f" , w2);
+			    get_num();
 				some.wynik = divide();
 				printf( "wynik dzielenia liczby %2.f od liczby %2.f to: %2.f \n \n" , *w2 , *w1 , *result );
 				mem_update();
 				break;
 			case 'm':
-			    *operation = '0';
 				calc_more();
 				break;
             case 'w':

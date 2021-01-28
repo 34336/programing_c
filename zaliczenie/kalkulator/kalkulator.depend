@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1611781694 source:c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\func.c
+1611822234 source:c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\func.c
 	<stdio.h>
 	<math.h>
 
-1611781694 source:c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\main.c
+1611821543 source:c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\main.c
 	<stdio.h>
 	<math.h>
 	"func.h"
 
-1611781694 c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\func.h
+1611821543 c:\users\marcin\documents\github\programing_c\zaliczenie\kalkulator\func.h
 
