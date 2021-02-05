@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p out
+gcc main.c sys.h sys.c -o out/program

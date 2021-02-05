@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-const char *OS(){
-	#ifdef _WIN32
-		return "win";
-	#endif
+int OS(){
 	#ifdef __linux__
-		return "linux";
+		return 1;
+	#endif
+	#ifdef _WIN32
+		return 2;
 	#endif
 	#ifdef __APPLE__
-		return "mac";
+		return 3;
 	#endif
 }
 
